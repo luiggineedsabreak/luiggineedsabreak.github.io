@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luiggi Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            font-family: 'Sora', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll on the body itself */
+            padding-bottom: 100px; /* Space at bottom */
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .header-container {
+            padding: 8vw;
+            max-width: 800px;
+        }
+
+        h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
+        p { font-size: 1.25rem; font-weight: 400; color: #dddddd; }
+
+        /* --- INFINITE BANNER STRIP (SECTION HEADER) --- */
+        .section-separator {
+            position: relative;
+            width: 100%;
+            height: 80px; /* Space for the tilted banner */
+            margin: 60px 0 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .banner-strip {
+            position: absolute;
+            width: 110vw; /* Make it wider than screen */
+            padding: 12px 0;
+            background-color: #E2F546; /* Default Yellow */
+            color: black;
+            transform: rotate(-2deg); /* Slight tilt like the image */
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* Blue Variant for Web Dev */
+        .banner-blue {
+            background-color: #007BFF;
+            transform: rotate(2deg); /* Tilt opposite way for variety */
+        }
+
+        .banner-track {
+            display: flex;
+            white-space: nowrap;
+            animation: infiniteScroll 20s linear infinite;
+        }
+
+        .tape-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .tape-item {
+            display: flex;
+            align-items: center;
+            padding-right: 40px;
+        }
+
+        .tape-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: black;
+        }
+
+        @keyframes infiniteScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- HORIZONTAL SCROLLING CARDS --- */
+        .cards-scroller {
+            display: flex;
+            overflow-x: auto; /* Enables side scrolling */
+            gap: 24px;
+            padding: 20px 8vw; /* Matches the left alignment of text */
+
+            /* Hide Scrollbar for cleaner look */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE 10+ */
+            scroll-behavior: smooth;
+        }
+
+        .cards-scroller::-webkit-scrollbar {
+            display: none; /* Chrome/Safari/Webkit */
+        }
+
+        /* THE CARD DESIGN */
+        .card {
+            /* Fix the width so they don't squish */
+            flex: 0 0 320px;
+            background-color: #E2F546; /* Match the banner color */
+            color: black;
+            border-radius: 24px; /* Rounded corners */
+            padding: 20px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Web Dev cards blue variant */
+        .card-blue {
+            background-color: #007BFF;
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Lift up slightly on hover */
+        }
+
+        .card-image-container {
+            width: 100%;
+            height: 200px;
+            background-color: #000; /* Black placeholder */
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the black box nicely */
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            color: #333;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .section-separator { margin: 40px 0; }
+            .card { flex: 0 0 280px; } /* Slightly smaller cards on mobile */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header-container">
+    <h1>Projetos</h1>
+    <p>Arraste para o lado para ver mais.</p>
+</div>
+
+<div class="section-separator">
+    <div class="banner-strip banner-blue">
+        <div class="banner-track">
+            <div class="tape-content">
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+            </div>
+            <div class="tape-content">
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 112 32 L 54.627 32 L 128 105.373 L 201.373 32 L 144 32 L 144 0 L 256 0 L 256 112 L 224 112 L 224 54.627 L 150.627 128 L 224 201.373 L 224 144 L 256 144 L 256 256 L 144 256 L 144 224 L 201.373 224 L 128 150.627 L 54.627 224 L 112 224 L 112 256 L 0 256 L 0 144 L 32 144 L 32 201.373 L 105.373 128 L 32 54.627 L 32 112 L 0 112 L 0 0 L 112 0 Z"/></svg> WEB DEV</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cards-scroller">
+
+    <a href="#" class="card card-blue">
+        <div class="card-image-container">
+            <img src="https://i.postimg.cc/rmHXTVYB/8D1BDF7D-B780-4C10-9239-4DC5209AB65E.png" alt="Project Image" class="card-image">
+        </div>
+        <h3>Este Site</h3>
+        <p>HTML, CSS and JS</p>
+    </a>
+    <a href="#" class="card card-blue">
+        <div class="card-image-container">
+            <img src="https://i.postimg.cc/PfLNwPhw/68038893-E321-4FA3-B411-8DA6A8493010.png" alt="Project Image" class="card-image">
+        </div>
+        <h3>Site - Eventos GLASSES</h3>
+        <p>Astro, Typescript</p>
+    </a>
+
+</div>
+
+
+<div class="section-separator">
+    <div class="banner-strip">
+        <div class="banner-track">
+            <div class="tape-content">
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+            </div>
+            <div class="tape-content">
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+                <div class="tape-item"><svg class="tape-icon" viewBox="0 0 256 256"><path d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/></svg> DESIGN GRÁFICO</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cards-scroller">
+
+    <a href="#" class="card">
+        <div class="card-image-container">
+            <img src="https://i.postimg.cc/XvJn6zYw/fundo-centralizado.png" alt="Project Image" class="card-image">
+        </div>
+        <h3>Grupo Glasses</h3>
+        <p>Branding, Social</p>
+    </a>
+
+</div>
+
+</body>
+</html>
